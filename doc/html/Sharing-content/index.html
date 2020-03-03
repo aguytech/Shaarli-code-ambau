@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+
+
+  <title>Sharing content - Shaarli Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sharing content";
+    var mkdocs_page_input_path = "Sharing-content.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Shaarli Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Setup</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Download-and-Installation/">Download and Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Upgrade-and-migration/">Upgrade and migration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Server-configuration/">Server configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Server-security/">Server security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Shaarli-configuration/">Shaarli configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugins/">Plugins</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Docker</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../docker/docker-101/">Docker 101</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/shaarli-images/">Shaarli images</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/reverse-proxy-configuration/">Reverse proxy configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/resources/">Docker resources</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Browsing-and-searching/">Browsing and searching</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Sharing content</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#adding-new-shaares">Adding new Shaares</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#shaare-button">+Shaare button</a></li>
+        
+            <li><a class="toctree-l4" href="#bookmarklet">Bookmarklet</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#editing-shaares">Editing Shaares</a></li>
+    
+
+    <li class="toctree-l3"><a href="#using-shaarli-as-a-blog-notepad-pastebin">Using shaarli as a blog, notepad, pastebin...</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RSS-feeds/">RSS feeds</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../REST-API/">REST API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Community-&-Related-software/">Community & Related software</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guides/install-shaarli-with-debian9-and-docker/">Install Shaarli on Debian 9 with Docker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/backup-restore-import-export/">Backup, restore, import and export</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/various-hacks/">Various hacks</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Development</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Development-guidelines/">Development guidelines</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Continuous-integration-tools/">Continuous integration tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../GnuPG-signature/">GnuPG signature</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Directory-structure/">Directory structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Link-structure/">Link Structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3rd-party-libraries/">3rd party libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugin-System/">Plugin System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Release-Shaarli/">Release Shaarli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Versioning-and-Branches/">Versioning and Branches</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Security/">Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static-analysis/">Static analysis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Translations/">Translations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Theming/">Theming</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests/">Unit tests</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests-Docker/">Unit tests inside Docker</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../FAQ/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Troubleshooting/">Troubleshooting</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Shaarli Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Usage &raquo;</li>
+        
+      
+    
+    <li>Sharing content</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/shaarli/Shaarli/edit/master/doc/md/Sharing-content.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Content posted to Shaarli is separated in items called <em>Shaares</em>. For each Shaare,
+you can customize the following aspects:</p>
+<ul>
+<li>URL to link to</li>
+<li>Title</li>
+<li>Free-text description</li>
+<li>Tags</li>
+<li>Public/private status</li>
+</ul>
+<hr />
+<h2 id="adding-new-shaares">Adding new Shaares</h2>
+<p>While logged in to your Shaarli, you can add new Shaares in several ways:</p>
+<ul>
+<li><a href="#shaare-button">+Shaare button</a></li>
+<li><a href="#bookmarklet">Bookmarklet</a></li>
+<li>Third-party <a href="../Community-&amp;-Related-software/#mobile-apps">apps and browser addons</a></li>
+<li><a href="https://shaarli.github.io/api-documentation/">REST API</a></li>
+</ul>
+<h3 id="shaare-button">+Shaare button</h3>
+<ul>
+<li>While logged in to your Shaarli, click the <strong><code>+Shaare</code></strong> button located in the toolbar.</li>
+<li>Enter the URL of a link you want to share.</li>
+<li>Click <code>Add link</code></li>
+<li>The <code>New Shaare</code> dialog appears, allowing you to fill in the details of your Shaare.</li>
+<li>The Description, Title, and Tags will help you find your Shaare later using tags or full-text search.</li>
+<li>You can also check the “Private” box so that the link is saved but only visible to you (the logged-in user).</li>
+<li>Click <code>Save</code>.</li>
+</ul>
+<!-- TODO Add screenshot of add/edit link dialog -->
+
+<h3 id="bookmarklet">Bookmarklet</h3>
+<p>The <em>Bookmarklet</em> [<a href="https://en.wikipedia.org/wiki/Bookmarklet">1</a>] is a special
+browser bookmark you can use to add new content to your Shaarli. This bookmarklet is
+compatible with Firefox, Opera, Chrome and Safari. To set it up:</p>
+<ul>
+<li>Access the <code>Tools</code> page from the button in the toolbar.</li>
+<li>Drag the <strong><code>✚Shaare link</code> button</strong> to your browser's bookmarks bar.</li>
+</ul>
+<p>Once this is done, you can shaare any URL you are visiting simply by clicking the
+bookmarklet in your browser! The same <code>New Shaare</code> dialog as above is displayed.</p>
+<table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Websites which enforce Content Security Policy (CSP), such as github.com, disallow usage of bookmarklets. Unfortunately, there is nothing Shaarli can do about it. [<a href="https://github.com/shaarli/Shaarli/issues/196">1</a>]\ [<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=866522">2</a>]\ [<a href="https://code.google.com/p/chromium/issues/detail?id=233903">3</a>]\</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Under Opera, you can't drag'n drop the button: You have to right-click on it and add a bookmark to your personal toolbar.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/bookmarklet.png" /></p>
+<hr />
+<h2 id="editing-shaares">Editing Shaares</h2>
+<p>Any Shaare can edited by clicking its <img alt="" src="../images/edit_icon.png" /> <code>Edit</code> button.</p>
+<p>Editing a Shaare will not change it's permalink, each permalink always points to the
+latest revision of a Shaare.</p>
+<hr />
+<h2 id="using-shaarli-as-a-blog-notepad-pastebin">Using shaarli as a blog, notepad, pastebin...</h2>
+<p>While adding or editing a link, leave the URL field blank to create a text-only
+("note") post. This allows you to post any kind of text content, such as blog
+articles, private or public notes, snippets... There is no character limit! You can
+access your Shaare from its permalink.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../RSS-feeds/" class="btn btn-neutral float-right" title="RSS feeds">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Browsing-and-searching/" class="btn btn-neutral" title="Browsing and searching"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/shaarli/Shaarli/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Browsing-and-searching/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../RSS-feeds/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

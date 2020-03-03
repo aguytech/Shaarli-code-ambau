@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+
+
+  <title>Server configuration - Shaarli Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Server configuration";
+    var mkdocs_page_input_path = "Server-configuration.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Shaarli Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Setup</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Download-and-Installation/">Download and Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Upgrade-and-migration/">Upgrade and migration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Server configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#prerequisites">Prerequisites</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#shaarli">Shaarli</a></li>
+        
+            <li><a class="toctree-l4" href="#ssltls-configuration">SSL/TLS configuration</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#apache">Apache</a></li>
+    
+
+    <li class="toctree-l3"><a href="#nginx">Nginx</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#common-setup">Common setup</a></li>
+        
+            <li><a class="toctree-l4" href="#optional-increase-the-maximum-file-upload-size">(Optional) Increase the maximum file upload size</a></li>
+        
+            <li><a class="toctree-l4" href="#minimal">Minimal</a></li>
+        
+            <li><a class="toctree-l4" href="#modular">Modular</a></li>
+        
+            <li><a class="toctree-l4" href="#redirect-http-to-https">Redirect HTTP to HTTPS</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#proxies">Proxies</a></li>
+    
+
+    <li class="toctree-l3"><a href="#robots-and-crawlers">Robots and crawlers</a></li>
+    
+
+    <li class="toctree-l3"><a href="#see-also">See also</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#webservers">Webservers</a></li>
+        
+            <li><a class="toctree-l4" href="#php">PHP</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Server-security/">Server security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Shaarli-configuration/">Shaarli configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugins/">Plugins</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Docker</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../docker/docker-101/">Docker 101</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/shaarli-images/">Shaarli images</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/reverse-proxy-configuration/">Reverse proxy configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/resources/">Docker resources</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Browsing-and-searching/">Browsing and searching</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Sharing-content/">Sharing content</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RSS-feeds/">RSS feeds</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../REST-API/">REST API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Community-&-Related-software/">Community & Related software</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guides/install-shaarli-with-debian9-and-docker/">Install Shaarli on Debian 9 with Docker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/backup-restore-import-export/">Backup, restore, import and export</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/various-hacks/">Various hacks</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Development</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Development-guidelines/">Development guidelines</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Continuous-integration-tools/">Continuous integration tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../GnuPG-signature/">GnuPG signature</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Directory-structure/">Directory structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Link-structure/">Link Structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3rd-party-libraries/">3rd party libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugin-System/">Plugin System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Release-Shaarli/">Release Shaarli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Versioning-and-Branches/">Versioning and Branches</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Security/">Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static-analysis/">Static analysis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Translations/">Translations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Theming/">Theming</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests/">Unit tests</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests-Docker/">Unit tests inside Docker</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../FAQ/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Troubleshooting/">Troubleshooting</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Shaarli Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Setup &raquo;</li>
+        
+      
+    
+    <li>Server configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/shaarli/Shaarli/edit/master/doc/md/Server-configuration.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <ul>
+<li><a href="#prerequisistes">Prerequisites</a></li>
+<li><a href="#apache">Apache</a></li>
+<li><a href="#nginx">Nginx</a></li>
+<li><a href="#proxies">Proxies</a></li>
+<li><a href="#see-also">See also</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="shaarli">Shaarli</h3>
+<ul>
+<li>A web server and PHP interpreter module/service have been installed.</li>
+<li>You have write access to the Shaarli installation directory.</li>
+<li>The correct read/write permissions have been granted to the web server user and group.</li>
+<li>Your PHP interpreter is compatible with supported PHP versions:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Version</th>
+<th align="center">Status</th>
+<th align="center">Shaarli compatibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">7.2</td>
+<td align="center">Supported</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">7.1</td>
+<td align="center">Supported</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">7.0</td>
+<td align="center">EOL: 2018-12-03</td>
+<td align="center">Yes (up to Shaarli 0.10.x)</td>
+</tr>
+<tr>
+<td align="center">5.6</td>
+<td align="center">EOL: 2018-12-31</td>
+<td align="center">Yes (up to Shaarli 0.10.x)</td>
+</tr>
+<tr>
+<td align="center">5.5</td>
+<td align="center">EOL: 2016-07-10</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">5.4</td>
+<td align="center">EOL: 2015-09-14</td>
+<td align="center">Yes (up to Shaarli 0.8.x)</td>
+</tr>
+<tr>
+<td align="center">5.3</td>
+<td align="center">EOL: 2014-08-14</td>
+<td align="center">Yes (up to Shaarli 0.8.x)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The following PHP extensions are installed on the server:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th align="center">Required?</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://php.net/manual/en/book.openssl.php"><code>openssl</code></a></td>
+<td align="center">All</td>
+<td>OpenSSL, HTTPS</td>
+</tr>
+<tr>
+<td><a href="http://php.net/manual/en/book.mbstring.php"><code>php-mbstring</code></a></td>
+<td align="center">CentOS, Fedora, RHEL, Windows, some hosting providers</td>
+<td>multibyte (Unicode) string support</td>
+</tr>
+<tr>
+<td><a href="http://php.net/manual/en/book.image.php"><code>php-gd</code></a></td>
+<td align="center">optional</td>
+<td>required to use thumbnails</td>
+</tr>
+<tr>
+<td><a href="http://php.net/manual/en/book.intl.php"><code>php-intl</code></a></td>
+<td align="center">optional</td>
+<td>localized text sorting (e.g. <code>e-&gt;è-&gt;f</code>)</td>
+</tr>
+<tr>
+<td><a href="http://php.net/manual/en/book.curl.php"><code>php-curl</code></a></td>
+<td align="center">optional</td>
+<td>using cURL for fetching webpages and thumbnails in a more robust way</td>
+</tr>
+<tr>
+<td><a href="http://php.net/manual/en/book.gettext.php"><code>php-gettext</code></a></td>
+<td align="center">optional</td>
+<td>Use the translation system in gettext mode (faster)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ssltls-configuration">SSL/TLS configuration</h3>
+<p>To setup HTTPS / SSL on your webserver (recommended), you must generate a public/private <strong>key pair</strong> and a <strong>certificate</strong>, and install, configure and activate the appropriate <strong>webserver SSL extension</strong>.</p>
+<h4 id="lets-encrypt">Let's Encrypt</h4>
+<p><a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt">Let's Encrypt</a> is a certificate authority that provides free TLS/X.509 certificates via an automated process.</p>
+<ul>
+<li>Install <code>certbot</code> using the appropriate method described on https://certbot.eff.org/.</li>
+</ul>
+<p>Location of the <code>certbot</code> program and template configuration files may vary depending on which installation method was used. Change the file paths below accordingly. Here is an easy way to create a signed certificate using <code>certbot</code>, it assumes <code>certbot</code> was installed through APT on a Debian-based distribution:</p>
+<ul>
+<li>Stop the apache2/nginx service.</li>
+<li>Run <code>certbot --agree-tos --standalone --preferred-challenges tls-sni --email "youremail@example.com" --domain yourdomain.example.com</code></li>
+<li>For the Apache webserver, copy <code>/usr/lib/python2.7/dist-packages/certbot_apache/options-ssl-apache.conf</code> to <code>/etc/letsencrypt/options-ssl-apache.conf</code> (paths may vary depending on installation method)</li>
+<li>For Nginx: TODO</li>
+<li>Setup your webserver as described below</li>
+<li>Restart the apache2/nginx service.</li>
+</ul>
+<h4 id="self-signed-certificates">Self-signed certificates</h4>
+<p>If you don't want to request a certificate from Let's Encrypt, or are unable to (for example, webserver on a LAN, or domain name not registered in the public DNS system), you can generate a self-signed certificate. This certificate will trigger security warnings in web browsers, unless you add it to the browser's SSL store manually.</p>
+<ul>
+<li>Apache: run <code>make-ssl-cert generate-default-snakeoil --force-overwrite</code></li>
+<li>Nginx: TODO</li>
+</ul>
+<hr />
+<h2 id="apache">Apache</h2>
+<p>Here is a basic configuration example for the Apache web server with <code>mod_php</code>.</p>
+<p>In <code>/etc/apache2/sites-available/shaarli.conf</code>:</p>
+<pre><code class="apache">&lt;VirtualHost *:443&gt;
+    ServerName   shaarli.my-domain.org
+    DocumentRoot /absolute/path/to/shaarli/
+
+    # Logging
+    # Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+    LogLevel  warn
+    ErrorLog  /var/log/apache2/shaarli-error.log
+    CustomLog /var/log/apache2/shaarli-access.log combined
+
+    # Let's Encrypt SSL configuration (recommended)
+    SSLEngine             on
+    SSLCertificateFile    /etc/letsencrypt/live/yourdomain.example.com/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/yourdomain.example.com/privkey.pem
+    Include /etc/letsencrypt/options-ssl-apache.conf
+
+    # Self-signed SSL cert configuration
+    #SSLEngine             on
+    #SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+    #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+
+    # Optional, log PHP errors, useful for debugging
+    #php_flag  log_errors on
+    #php_flag  display_errors on
+    #php_value error_reporting 2147483647
+    #php_value error_log /var/log/apache2/shaarli-php-error.log
+
+    &lt;Directory /absolute/path/to/shaarli/&gt;
+        #Required for .htaccess support
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+
+        Options Indexes FollowSymLinks MultiViews #TODO is Indexes/Multiviews required?
+
+        # Optional - required for playvideos plugin
+        #Header set Content-Security-Policy &quot;script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com 'unsafe-eval'&quot;
+    &lt;/Directory&gt;
+
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>Enable this configuration with <code>sudo a2ensite shaarli</code></p>
+<p><em>Note: If you use Apache 2.2 or lower, you need <a href="https://httpd.apache.org/docs/current/mod/mod_version.html">mod_version</a> to be installed and enabled.</em></p>
+<p><em>Note: Apache module <code>mod_rewrite</code> must be enabled to use the REST API.</em></p>
+<h2 id="nginx">Nginx</h2>
+<p>Here is a basic configuration example for the Nginx web server, using the <a href="http://php-fpm.org">php-fpm</a> PHP FastCGI Process Manager, and Nginx's <a href="https://en.wikipedia.org/wiki/FastCGI">FastCGI</a> module.</p>
+<!--- TODO refactor everything below this point --->
+
+<h3 id="common-setup">Common setup</h3>
+<p>Once Nginx and PHP-FPM are installed, we need to ensure:</p>
+<ul>
+<li>Nginx and PHP-FPM are running using the <em>same user and group</em></li>
+<li>both these user and group have<ul>
+<li><code>read</code> permissions for Shaarli resources</li>
+<li><code>execute</code> permissions for Shaarli directories <em>AND</em> their parent directories</li>
+</ul>
+</li>
+</ul>
+<p>On a production server:</p>
+<ul>
+<li><code>user:group</code> will likely be <code>http:http</code>, <code>www:www</code> or <code>www-data:www-data</code></li>
+<li>files will be located under <code>/var/www</code>, <code>/var/http</code> or <code>/usr/share/nginx</code></li>
+</ul>
+<p>On a development server:</p>
+<ul>
+<li>files may be located in a user's home directory</li>
+<li>in this case, make sure both Nginx and PHP-FPM are running as the local user/group!</li>
+</ul>
+<p>For all following configuration examples, this user/group pair will be used:</p>
+<ul>
+<li><code>user:group = john:users</code>,</li>
+</ul>
+<p>which corresponds to the following service configuration:</p>
+<pre><code class="ini">; /etc/php/php-fpm.conf
+user = john
+group = users
+
+[...]
+listen.owner = john
+listen.group = users
+</code></pre>
+
+<pre><code class="nginx"># /etc/nginx/nginx.conf
+user john users;
+
+http {
+    [...]
+}
+</code></pre>
+
+<h3 id="optional-increase-the-maximum-file-upload-size">(Optional) Increase the maximum file upload size</h3>
+<p>Some bookmark dumps generated by web browsers can be <em>huge</em> due to the presence of Base64-encoded images and favicons, as well as extra verbosity when nesting links in (sub-)folders.</p>
+<p>To increase upload size, you will need to modify both nginx and PHP configuration:</p>
+<pre><code class="nginx"># /etc/nginx/nginx.conf
+
+http {
+    [...]
+
+    client_max_body_size 10m;
+
+    [...]
+}
+</code></pre>
+
+<pre><code class="ini"># /etc/php5/fpm/php.ini
+
+[...]
+post_max_size = 10M
+[...]
+upload_max_filesize = 10M
+</code></pre>
+
+<h3 id="minimal">Minimal</h3>
+<p><em>WARNING: Use for development only!</em> </p>
+<pre><code class="nginx">user john users;
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+
+http {
+    include            mime.types;
+    default_type       application/octet-stream;
+    keepalive_timeout  20;
+
+    index index.html index.php;
+
+    server {
+        listen       80;
+        server_name  localhost;
+        root         /home/john/web;
+
+        access_log  /var/log/nginx/access.log;
+        error_log   /var/log/nginx/error.log;
+
+        location /shaarli/ {
+            try_files $uri /shaarli/index.php$is_args$args;
+            access_log  /var/log/nginx/shaarli.access.log;
+            error_log   /var/log/nginx/shaarli.error.log;
+        }
+
+        location ~ (index)\.php$ {
+            try_files $uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+            fastcgi_index  index.php;
+            include        fastcgi.conf;
+        }
+    }
+}
+</code></pre>
+
+<h3 id="modular">Modular</h3>
+<p>The previous setup is sufficient for development purposes, but has several major caveats:</p>
+<ul>
+<li>every content that does not match the PHP rule will be sent to client browsers:<ul>
+<li>dotfiles - in our case, <code>.htaccess</code></li>
+<li>temporary files, e.g. Vim or Emacs files: <code>index.php~</code></li>
+</ul>
+</li>
+<li>asset / static resource caching is not optimized</li>
+<li>if serving several PHP sites, there will be a lot of duplication: <code>location /shaarli/</code>, <code>location /mysite/</code>, etc.</li>
+</ul>
+<p>To solve this, we will split Nginx configuration in several parts, that will be included when needed:</p>
+<pre><code class="nginx"># /etc/nginx/deny.conf
+location ~ /\. {
+    # deny access to dotfiles
+    access_log off;
+    log_not_found off;
+    deny all;
+}
+
+location ~ ~$ {
+    # deny access to temp editor files, e.g. &quot;script.php~&quot;
+    access_log off;
+    log_not_found off;
+    deny all;
+}
+</code></pre>
+
+<pre><code class="nginx"># /etc/nginx/php.conf
+location ~ (index)\.php$ {
+    # Slim - split URL path into (script_filename, path_info)
+    try_files $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+    # filter and proxy PHP requests to PHP-FPM
+    fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_index  index.php;
+    include        fastcgi.conf;
+}
+
+location ~ \.php$ {
+    # deny access to all other PHP scripts
+    deny all;
+}
+</code></pre>
+
+<pre><code class="nginx"># /etc/nginx/static_assets.conf
+location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+    expires    max;
+    add_header Pragma public;
+    add_header Cache-Control &quot;public, must-revalidate, proxy-revalidate&quot;;
+}
+</code></pre>
+
+<pre><code class="nginx"># /etc/nginx/nginx.conf
+[...]
+
+http {
+    [...]
+
+    root        /home/john/web;
+    access_log  /var/log/nginx/access.log;
+    error_log   /var/log/nginx/error.log;
+
+    server {
+        # virtual host for a first domain
+        listen       80;
+        server_name  my.first.domain.org;
+
+        location /shaarli/ {
+            # Slim - rewrite URLs
+            try_files $uri /shaarli/index.php$is_args$args;
+
+            access_log  /var/log/nginx/shaarli.access.log;
+            error_log   /var/log/nginx/shaarli.error.log;
+        }
+
+        location = /shaarli/favicon.ico {
+            # serve the Shaarli favicon from its custom location
+            alias /var/www/shaarli/images/favicon.ico;
+        }
+
+        include deny.conf;
+        include static_assets.conf;
+        include php.conf;
+    }
+
+    server {
+        # virtual host for a second domain
+        listen       80;
+        server_name  second.domain.com;
+
+        location /minigal/ {
+            access_log  /var/log/nginx/minigal.access.log;
+            error_log   /var/log/nginx/minigal.error.log;
+        }
+
+        include deny.conf;
+        include static_assets.conf;
+        include php.conf;
+    }
+}
+</code></pre>
+
+<h3 id="redirect-http-to-https">Redirect HTTP to HTTPS</h3>
+<p>Assuming you have generated a (self-signed) key and certificate, and they are
+located under <code>/home/john/ssl/localhost.{key,crt}</code>, it is pretty straightforward
+to set an HTTP (:80) to HTTPS (:443) redirection to force SSL/TLS usage.</p>
+<pre><code class="nginx"># /etc/nginx/nginx.conf
+[...]
+
+http {
+    [...]
+
+    index index.html index.php;
+
+    root        /home/john/web;
+    access_log  /var/log/nginx/access.log;
+    error_log   /var/log/nginx/error.log;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        return 301 https://localhost$request_uri;
+    }
+
+    server {
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      /home/john/ssl/localhost.crt;
+        ssl_certificate_key  /home/john/ssl/localhost.key;
+
+        location /shaarli/ {
+            # Slim - rewrite URLs
+            try_files $uri /index.php$is_args$args;
+
+            access_log  /var/log/nginx/shaarli.access.log;
+            error_log   /var/log/nginx/shaarli.error.log;
+        }
+
+        location = /shaarli/favicon.ico {
+            # serve the Shaarli favicon from its custom location
+            alias /var/www/shaarli/images/favicon.ico;
+        }
+
+        include deny.conf;
+        include static_assets.conf;
+        include php.conf;
+    }
+}
+</code></pre>
+
+<h2 id="proxies">Proxies</h2>
+<p>If Shaarli is served behind a proxy (i.e. there is a proxy server between clients and the web server hosting Shaarli), please refer to the proxy server documentation for proper configuration. In particular, you have to ensure that the following server variables are properly set:</p>
+<ul>
+<li><code>X-Forwarded-Proto</code></li>
+<li><code>X-Forwarded-Host</code></li>
+<li><code>X-Forwarded-For</code></li>
+</ul>
+<p>In you <a href="Shaarli-configuration">Shaarli configuration</a> <code>data/config.json.php</code>, add the public IP of your proxy under <code>security.trusted_proxies</code>.</p>
+<p>See also <a href="https://github.com/shaarli/Shaarli/issues?utf8=%E2%9C%93&amp;q=label%3Aproxy+">proxy-related</a> issues.</p>
+<h2 id="robots-and-crawlers">Robots and crawlers</h2>
+<p>Shaarli disallows indexing and crawling of your local documentation pages by search engines, using <code>&lt;meta name="robots"&gt;</code> HTML tags.
+Your Shaarli instance and other pages you host may still be indexed by various robots on the public Internet.
+You may want to setup a robots.txt file or other crawler control mechanism on your server.
+See <a href="https://en.wikipedia.org/wiki/Robots_exclusion_standard">[1]</a>, <a href="https://support.google.com/webmasters/answer/6062608?hl=en">[2]</a> and <a href="https://developers.google.com/search/reference/robots_meta_tag">[3]</a></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../Server-security/">Server security</a></li>
+</ul>
+<h4 id="webservers">Webservers</h4>
+<ul>
+<li><a href="http://stackoverflow.com/q/176">Apache/PHP - error log per VirtualHost</a> (StackOverflow)</li>
+<li><a href="https://ma.ttias.be/php-php_value-vs-php_admin_value-and-the-use-of-php_flag-explained/">Apache - PHP: php_value vs php_admin_value and the use of php_flag explained</a></li>
+<li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS#Apache">Server-side TLS (Apache)</a> (Mozilla)</li>
+<li><a href="http://nginx.org/en/docs/beginners_guide.html">Nginx Beginner's guide</a></li>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html">Nginx ngx_http_fastcgi_module</a></li>
+<li><a href="http://wiki.nginx.org/Pitfalls">Nginx Pitfalls</a></li>
+<li><a href="http://kbeezie.com/nginx-configuration-examples/">Nginx PHP configuration examples</a> (Karl Blessing)</li>
+<li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS#Nginx">Server-side TLS (Nginx)</a> (Mozilla)</li>
+<li><a href="http://www.xenocafe.com/tutorials/linux/centos/openssl/self_signed_certificates/index.php">How to Create Self-Signed SSL Certificates with OpenSSL</a></li>
+<li><a href="https://workaround.org/certificate-authority">How do I create my own Certificate Authority?</a></li>
+</ul>
+<h4 id="php">PHP</h4>
+<ul>
+<li><a href="https://github.com/shaarli/Shaarli/blob/master/.travis.yml">Travis configuration</a></li>
+<li><a href="http://php.net/supported-versions.php">PHP: Supported versions</a></li>
+<li><a href="http://php.net/eol.php">PHP: Unsupported versions</a> <em>(EOL - End Of Life)</em></li>
+<li><a href="http://php.net/ChangeLog-7.php">PHP 7 Changelog</a></li>
+<li><a href="http://php.net/ChangeLog-5.php">PHP 5 Changelog</a></li>
+<li><a href="https://bugs.php.net/">PHP: Bugs</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Server-security/" class="btn btn-neutral float-right" title="Server security">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Upgrade-and-migration/" class="btn btn-neutral" title="Upgrade and migration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/shaarli/Shaarli/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Upgrade-and-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Server-security/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

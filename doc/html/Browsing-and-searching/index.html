@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+
+
+  <title>Browsing and searching - Shaarli Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Browsing and searching";
+    var mkdocs_page_input_path = "Browsing-and-searching.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Shaarli Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Setup</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Download-and-Installation/">Download and Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Upgrade-and-migration/">Upgrade and migration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Server-configuration/">Server configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Server-security/">Server security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Shaarli-configuration/">Shaarli configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugins/">Plugins</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Docker</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../docker/docker-101/">Docker 101</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/shaarli-images/">Shaarli images</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/reverse-proxy-configuration/">Reverse proxy configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docker/resources/">Docker resources</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Browsing and searching</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#plain-text-search">Plain text search</a></li>
+    
+
+    <li class="toctree-l3"><a href="#tags-search">Tags search</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#tag-cloud">Tag cloud</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#filtering-rss-feedspicture-wall">Filtering RSS feeds/Picture wall</a></li>
+    
+
+    <li class="toctree-l3"><a href="#filter-buttons">Filter buttons</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Sharing-content/">Sharing content</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RSS-feeds/">RSS feeds</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../REST-API/">REST API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Community-&-Related-software/">Community & Related software</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guides/install-shaarli-with-debian9-and-docker/">Install Shaarli on Debian 9 with Docker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/backup-restore-import-export/">Backup, restore, import and export</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guides/various-hacks/">Various hacks</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Development</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Development-guidelines/">Development guidelines</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Continuous-integration-tools/">Continuous integration tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../GnuPG-signature/">GnuPG signature</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Directory-structure/">Directory structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Link-structure/">Link Structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3rd-party-libraries/">3rd party libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Plugin-System/">Plugin System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Release-Shaarli/">Release Shaarli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Versioning-and-Branches/">Versioning and Branches</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Security/">Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static-analysis/">Static analysis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Translations/">Translations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Theming/">Theming</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests/">Unit tests</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Unit-tests-Docker/">Unit tests inside Docker</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../FAQ/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Troubleshooting/">Troubleshooting</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Shaarli Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Usage &raquo;</li>
+        
+      
+    
+    <li>Browsing and searching</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/shaarli/Shaarli/edit/master/doc/md/Browsing-and-searching.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="plain-text-search">Plain text search</h2>
+<p>Use the <code>Search text</code> field to search in <em>any</em> of the fields of all links (Title, URL, Description...)</p>
+<p><strong>Exclude text/tags:</strong> Use the <code>-</code> operator before a word or tag (example <code>-uninteresting</code>) to prevent entries containing (or tagged) <code>uninteresting</code> from showing up in the search results.</p>
+<p><strong>Exact text search:</strong> Use double-quotes (example <code>"exact search"</code>) to search for the exact expression.</p>
+<p>Both exclude patterns and exact searches can be combined with normal searches (example <code>"exact search" term otherterm -notthis "very exact" stuff -notagain</code>)</p>
+<h2 id="tags-search">Tags search</h2>
+<p>Use the <code>Filter by tags</code> field to restrict displayed links to entries tagged with one or multiple tags (use space to separate tags).  </p>
+<p><strong>Hidden tags:</strong> Tags starting with a dot <code>.</code> (example <code>.secret</code>) are private. They can only be seen and searched when logged in.</p>
+<h3 id="tag-cloud">Tag cloud</h3>
+<p>The <code>Tag cloud</code> page diplays a "cloud" view of all tags in your Shaarli.</p>
+<ul>
+<li>The most frequently used tags are displayed with a bigger font size.</li>
+<li>When sorting by <code>Most used</code> or <code>Alphabetical</code>, tags are displayed as a <em>list</em>, along with counters and edit/delete buttons for each tag.</li>
+<li>Clicking on any tag will display a list of all Shaares matching this tag.</li>
+<li>Clicking on the counter next to a tag <code>example</code>, will filter the tag cloud to only display tags found in Shaares tagged <code>example</code>. Repeat this any number of times to further filter the tag cloud. Click <code>List all links with those tags</code> to display Shaares matching your current tag filter.</li>
+</ul>
+<h2 id="filtering-rss-feedspicture-wall">Filtering RSS feeds/Picture wall</h2>
+<p>RSS feeds can also be restricted to only return items matching a text/tag search: see <a href="RSS-feeds">RSS feeds</a>.</p>
+<h2 id="filter-buttons">Filter buttons</h2>
+<p>Filter buttons can be found at the top left of the link list. They allow you to apply different filters to the list:</p>
+<ul>
+<li><strong>Private links:</strong> When this toggle button is enabled, only shaares set to <code>private</code> will be shown.</li>
+<li><strong>Untagged links:</strong> When the this toggle button is enabled (top left of the link list), only shaares <em>without any tags</em> will be shown in the link list.</li>
+</ul>
+<p>Filter buttons are only available when logged in.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Sharing-content/" class="btn btn-neutral float-right" title="Sharing content">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../docker/resources/" class="btn btn-neutral" title="Docker resources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/shaarli/Shaarli/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../docker/resources/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Sharing-content/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
